@@ -1,0 +1,67 @@
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page */
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Conteneur principal */
+.quizContainer {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* Écrans */
+.quizScreen {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Titre de l'accueil */
+#accueil h1 {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Bouton */
+#startQuiz {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+    transition: transform 0.2s ease,
+                opacity 0.2s ease;
+}
+
+#startQuiz:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+/* Classe permettant de masquer un écran */
+.hidden {
+    display: none;
+}
