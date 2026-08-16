@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz jeu league</title>
+    <title>Quiz Géographie (travel)</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
 
         <!-- Écran d'accueil -->
         <section id="accueil" class="quizScreen">
-            <h1>QUIZ Champion League</h1>
+            <h1>QUIZ Géographie</h1>
 
             <button id="boutonStartQuiz">
                 Début du quiz
@@ -26,9 +26,15 @@
 
         <!-- Écran de jeu -->
         <section id="jeu" class="quizScreen hidden">
-
-
-
+        
+            <div class="questionContainer">
+                <p id="questionNumber"></p>
+                <h2 id="question"></h2>
+                <div id="answers" class="answersContainer"></div>
+                <button id="nextQuestion" class="nextButton hidden">
+                    Question suivante
+                </button>
+            </div>
         </section>
 
 
