@@ -57,26 +57,32 @@ const questions = [
 
     {
         question: "Quel est la bonne suite de pays pour aller du Mexique à la Colombie par la terre uniquement ?",
-        answers: ["Terre", "Saturne", "Jupiter", "Neptune"],
-        correctAnswer: "Jupiter"
+        answers: ["Nicaragua, Guatemala, panama, honduras, costa rica", 
+            "Guatemala, Honduras, Nicaragua, Costa Rica, Panama", 
+            "Panama, honduras, Costa Rica, Nicaragua, Guatemala", 
+            "Costa Rica, Panama, Honduras, Nicaragua, Guatemala"],
+        correctAnswer: "Guatemala, Honduras, Nicaragua, Costa Rica, Panama"
     },
 
     {
-        question: "Quelle couleur obtient-on en mélangeant du bleu et du jaune ?",
-        answers: ["Rouge", "Vert", "Orange", "Violet"],
-        correctAnswer: "Vert"
+        question: "Conbien y a-t-il de régions en France ?",
+        answers: ["13", "15", "17", "18"],
+        correctAnswer: "18"
     },
 
     {
-        question: "Combien de côtés possède un hexagone ?",
-        answers: ["5", "6", "7", "8"],
-        correctAnswer: "6"
+        question: "Conbien y a-t-il d'états aux États-Unis ?",
+        answers: ["45", "50", "55", "56"],
+        correctAnswer: "50"
     },
 
     {
-        question: "Quel est le plus grand océan du monde ?",
-        answers: ["Atlantique", "Indien", "Arctique", "Pacifique"],
-        correctAnswer: "Pacifique"
+        question: "Quelle sont les pays qu'il faut traverser par la terre uniquement pour aller le plus rapidement du Pays-Bas à l'Estonie' ?",
+        answers: ["Belgique, Allemagne, Pologne, Lituanie, Lettonie", 
+            "Allemagne, Pologne, Lituanie, Lettonie", 
+            "Allemagne, Pologne, , Biolerussie, Lituanie, Lettonie", 
+            "Belgique, Allemagne, Pologne, Biolerussie, Russie, Lettonie"],
+        correctAnswer: "Allemagne, Pologne, Lituanie, Lettonie"
     },
 
     {
