@@ -1,37 +1,51 @@
-/* Réinitialisation de base */
+/* ============================== */
+/*        RÉINITIALISATION        */
+/* ============================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #a5a3ff;
 }
 
-/* Page */
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
+    width: 100%;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    background-color: #a5a3ff;
+    color: #000000;
+    overflow-x: hidden;
 }
 
-/* Classe permettant de masquer un écran */
 
+/* ============================== */
+/*       CONTENEUR PRINCIPAL      */
+/* ============================== */
 
-/* Conteneur principal */
 .quizContainer {
-    min-height: 100vh;
     width: 100%;
-
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: clamp(15px, 3vw, 40px);
 }
 
-/* Écrans */
+
+/* ============================== */
+/*            ÉCRANS              */
+/* ============================== */
+
 .quizScreen {
     width: 100%;
     max-width: 1000px;
-    min-height: 500px;
+    min-height: min(700px, calc(100vh - 40px));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,37 +54,47 @@ body {
 }
 
 
-/*---------------*/
-/*----ACCUEIL----*/
-/*---------------*/
+/* Écran masqué */
+.hidden {
+    display: none;
+}
 
-/* Titre de l'accueil */
+
+/* ============================== */
+/*            ACCUEIL             */
+/* ============================== */
+
 #accueil h1 {
     font-size: clamp(2.5rem, 8vw, 5.5rem);
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: clamp(25px, 5vh, 40px);
+    line-height: 1;
 }
 
+
+/* Nom */
 #nom {
-    font-size: clamp(0.5rem, 1vw, 0.75rem);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     font-weight: 400;
+    margin-top: 60px;
     margin-bottom: 30px;
-    margin-top: 100px;
     text-align: center;
 }
 
 
+/* Bouton début du quiz */
 #boutonStartQuiz {
-    padding: 25px 40px;
-    font-size: 1.3rem;
+    padding: clamp(15px, 2vw, 25px) clamp(25px, 4vw, 40px);
+    font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     background-color: #000000;
     color: #ffffff;
-    transition: transform 0.2s ease, /*mouvement fluide grossissement*/
-                opacity 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
 #boutonStartQuiz:hover {
@@ -78,15 +102,11 @@ body {
     opacity: 0.85;
 }
 
-.hidden {
-    display: none;
-}
 
-/*---------------*/
-/*------JEU------*/   
-/*---------------*/
+/* ============================== */
+/*              JEU               */
+/* ============================== */
 
-/* Conteneur de la question */
 .questionContainer {
     width: 100%;
     max-width: 1000px;
@@ -96,55 +116,70 @@ body {
     text-align: center;
 }
 
+
 /* Numéro de la question */
 #questionNumber {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: clamp(15px, 3vh, 25px);
 }
+
 
 /* Question */
 #question {
     width: 100%;
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 700;
-    margin-bottom: 50px;
+    line-height: 1.2;
+    margin-bottom: clamp(25px, 5vh, 50px);
+    overflow-wrap: break-word;
 }
 
-/* Conteneur des réponses */
+
+/* ============================== */
+/*          RÉPONSES              */
+/* ============================== */
+
 .answersContainer {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(10px, 2vw, 15px);
 }
+
 
 /* Boutons de réponse */
 .answerButton {
+    width: 100%;
     min-height: 80px;
     padding: 15px;
     border: 2px solid #000000;
     border-radius: 8px;
     background-color: #ffffff;
     color: #000000;
-    font-size: 1rem;
+    font-family: inherit;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     font-weight: 600;
     cursor: pointer;
+    overflow-wrap: break-word;
     transition:
         background-color 0.2s ease,
         color 0.2s ease,
         transform 0.2s ease;
 }
 
+
 /* Effet au survol */
 .answerButton:hover:not(:disabled) {
     transform: translateY(-3px);
 }
 
+
 /* Bouton désactivé */
 .answerButton:disabled {
     cursor: default;
 }
+
 
 /* Bonne réponse */
 .answerButton.correct {
@@ -153,6 +188,7 @@ body {
     color: #ffffff;
 }
 
+
 /* Mauvaise réponse */
 .answerButton.wrong {
     background-color: #dc3545;
@@ -160,85 +196,224 @@ body {
     color: #ffffff;
 }
 
+
+/* ============================== */
+/*       BOUTON QUESTION          */
+/*          SUIVANTE              */
+/* ============================== */
+
 .nextButton {
-    margin-top: 30px;
+    margin-top: clamp(20px, 4vh, 30px);
     padding: 15px 30px;
     border: none;
     border-radius: 8px;
     background-color: #000000;
     color: #ffffff;
-    font-size: 1rem;
+    font-family: inherit;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s ease,
-                opacity 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
+
 
 .nextButton:hover {
     transform: scale(1.05);
     opacity: 0.85;
 }
 
-/*---------------*/
-/*------FIN------*/   
-/*---------------*/
 
-/* Conteneur de l'écran de fin */
+/* ============================== */
+/*             FIN                */
+/* ============================== */
+
 .endContainer {
     width: 100%;
     max-width: 800px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     text-align: center;
 }
 
-/* Titre de fin */
+
+/* Titre */
 .endContainer h2 {
     font-size: clamp(2rem, 6vw, 4rem);
     font-weight: 700;
-
-    margin-bottom: 30px;
+    line-height: 1.1;
+    margin-bottom: clamp(20px, 4vh, 30px);
 }
+
 
 /* Score */
 #finalScore {
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 700;
-
+    line-height: 1;
     margin-bottom: 25px;
 }
 
+
 /* Message personnalisé */
 #finalMessage {
+    max-width: 600px;
     font-size: clamp(1rem, 2.5vw, 1.5rem);
-
+    line-height: 1.4;
     margin-bottom: 40px;
 }
+
 
 /* Bouton rejouer */
 .restartButton {
     padding: 15px 35px;
-
     border: none;
     border-radius: 8px;
-
     background-color: #000000;
     color: #ffffff;
-
-    font-size: 1.1rem;
+    font-family: inherit;
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
     font-weight: 600;
-
     cursor: pointer;
-
     transition:
         transform 0.2s ease,
         opacity 0.2s ease;
 }
 
+
 .restartButton:hover {
     transform: scale(1.05);
     opacity: 0.85;
+}
+
+
+/* ============================== */
+/*          TABLETTES             */
+/* ============================== */
+
+@media (max-width: 800px) {
+
+    .quizContainer {
+        padding: 20px;
+    }
+
+    .quizScreen {
+        min-height: calc(100vh - 40px);
+    }
+
+    .answersContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================== */
+/*          TÉLÉPHONES            */
+/* ============================== */
+
+@media (max-width: 500px) {
+
+    .quizContainer {
+        padding: 15px;
+    }
+
+    .quizScreen {
+        min-height: calc(100vh - 30px);
+    }
+
+    #accueil h1 {
+        margin-bottom: 25px;
+    }
+
+    #nom {
+        margin-top: 40px;
+        margin-bottom: 25px;
+    }
+
+    #question {
+        margin-bottom: 30px;
+    }
+
+    .answersContainer {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .answerButton {
+        min-height: 60px;
+    }
+
+    #boutonStartQuiz,
+    .nextButton,
+    .restartButton {
+        max-width: 100%;
+    }
+}
+
+
+/* ============================== */
+/*       TRÈS PETITS ÉCRANS       */
+/* ============================== */
+
+@media (max-width: 350px) {
+
+    .quizContainer {
+        padding: 10px;
+    }
+
+    .quizScreen {
+        min-height: calc(100vh - 20px);
+    }
+
+    .answerButton {
+        min-height: 55px;
+        padding: 10px;
+    }
+
+    #question {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* ============================== */
+/*      ÉCRAN EN PAYSAGE          */
+/*       SUR TÉLÉPHONE            */
+/* ============================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .quizContainer {
+        padding: 15px;
+    }
+
+    .quizScreen {
+        min-height: auto;
+        padding: 30px 0;
+    }
+
+    #accueil h1 {
+        font-size: clamp(2rem, 8vw, 4rem);
+        margin-bottom: 20px;
+    }
+
+    #nom {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #question {
+        margin-bottom: 20px;
+    }
+
+    .answerButton {
+        min-height: 55px;
+    }
+
+    .nextButton {
+        margin-top: 15px;
+    }
 }
