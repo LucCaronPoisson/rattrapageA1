@@ -8,9 +8,12 @@ const questionNumber = document.getElementById("questionNumber");
 const questionElement = document.getElementById("question");
 const answersContainer = document.getElementById("answers");
 const nextQuestion = document.getElementById("nextQuestion");
-
 let currentQuestion = 0;
 let score = 0;
+
+const finalScore = document.getElementById("finalScore");
+const finalMessage = document.getElementById("finalMessage");
+const restartQuiz = document.getElementById("restartQuiz");
 
 boutonStartQuiz.addEventListener("click", function () {
     accueil.classList.add("hidden");
@@ -80,7 +83,7 @@ const questions = [
         question: "Quelle sont les pays qu'il faut traverser par la terre uniquement pour aller le plus rapidement du Pays-Bas à l'Estonie' ?",
         answers: ["Belgique, Allemagne, Pologne, Lituanie, Lettonie", 
             "Allemagne, Pologne, Lituanie, Lettonie", 
-            "Allemagne, Pologne, , Biolerussie, Lituanie, Lettonie", 
+            "Allemagne, Pologne, Biolerussie, Lituanie, Lettonie", 
             "Belgique, Allemagne, Pologne, Biolerussie, Russie, Lettonie"],
         correctAnswer: "Allemagne, Pologne, Lituanie, Lettonie"
     },
@@ -222,5 +225,38 @@ function showEndScreen() {
     jeu.classList.add("hidden");
     fin.classList.remove("hidden");
 
-    console.log(`Score : ${score} / ${questions.length}`);
+    // Affichage du score
+    finalScore.textContent = `${score} / ${questions.length}`;
+
+
+    // Message personnalisé
+    if (score === 10) {
+
+        finalMessage.textContent =
+            "Google maps intégré dans ton cerveau ! bravo !";
+
+    } else if (score >= 7) {
+
+        finalMessage.textContent =
+            "Tu es la carte de tes amis ! Bien joué !";
+
+    } else if (score >= 5) {
+
+        finalMessage.textContent =
+            "Tu connais la France comme ta poche ! Pas mal !";
+
+    } else {
+
+        finalMessage.textContent =
+            "Achete une carte du monde et ne te perds pas en chemin ! Un jour tu y arriveras !";
+    }
 }
+
+restartQuiz.addEventListener("click", function () {
+
+    currentQuestion = 0;
+    score = 0;
+
+    fin.classList.add("hidden");
+    accueil.classList.remove("hidden");
+});

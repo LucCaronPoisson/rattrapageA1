@@ -178,3 +178,67 @@ body {
     transform: scale(1.05);
     opacity: 0.85;
 }
+
+/*---------------*/
+/*------FIN------*/   
+/*---------------*/
+
+/* Conteneur de l'écran de fin */
+.endContainer {
+    width: 100%;
+    max-width: 800px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* Titre de fin */
+.endContainer h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+
+    margin-bottom: 30px;
+}
+
+/* Score */
+#finalScore {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+/* Message personnalisé */
+#finalMessage {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+
+    margin-bottom: 40px;
+}
+
+/* Bouton rejouer */
+.restartButton {
+    padding: 15px 35px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.restartButton:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
